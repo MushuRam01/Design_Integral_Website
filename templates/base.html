@@ -3,54 +3,326 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{% block title %}Dugong Design Integral{% endblock %}</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
-    {% block extra_head %}{% endblock %}
-</head>
-<body>
-    <header>
-        <div class="header-content">
-            <div class="logo">
-                <a href="/" class="logo-link">
-                    <img src="{{ url_for('static', filename='logo.svg') }}" alt="Logo" class="logo-img">
-                    <span class="logo-text">Design Integral</span>
-                </a>
-            </div>
-            <nav>
-                <ul class="nav-links">
-                    <li><a href="/team">Team</a></li>
-                    <li><a href="/portfolio">Portfolio</a></li>
-                    <li><a href="/about">About</a></li>
-                    <li><a href="/contact">Contact</a></li>
-                </ul>
-            </nav>
-        </div>
-    </header>
-    <main>
-        {% block content %}{% endblock %}
-    </main>
-    <footer>
-        <p>&copy; 2025 Dugong Design Integral. All rights reserved.</p>
-    </footer>
-    <script>
-        const toggleButton = document.getElementById('theme-toggle');
-        const body = document.body;
-
-        // Check for saved theme preference or default to light mode
-        const currentTheme = localStorage.getItem('theme') || 'light';
-        if (currentTheme === 'dark') {
-            body.classList.add('dark-mode');
-            toggleButton.textContent = 'Toggle Light Mode';
-        } else {
-            toggleButton.textContent = 'Toggle Dark Mode';
+    <title>Design Integral</title>
+    <style>
+        :root {
+            /* Structural Brand Color (Amethyst) */
+            --brand-main: #5f548dff;
+            
+            /* Interactive Accent Color (Deep Iris RGBA) */
+            --accent-rgba: rgba(95, 84, 141, 1);
+            --accent-hover: rgba(95, 84, 141, 0.85);
+            
+            /* Page Surface Colors */
+            --bg-color: #ffffff;
+            --text-color: #1a1a1a;
+            --text-muted: #666666;
+            --white: #ffffff;
+            --border-color: rgba(95, 84, 141, 0.15);
         }
 
-        toggleButton.addEventListener('click', () => {
-            body.classList.toggle('dark-mode');
-            const theme = body.classList.contains('dark-mode') ? 'dark' : 'light';
-            localStorage.setItem('theme', theme);
-            toggleButton.textContent = theme === 'dark' ? 'Toggle Light Mode' : 'Toggle Dark Mode';
-        });
+        /* Base Reset */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body {
+            font-family: 'Inter', system-ui, -apple-system, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        .app-wrapper { 
+            display: flex; 
+            flex-direction: column; 
+            min-height: 100vh; 
+        }
+
+        /* --- Global Utility --- */
+        .pop-text { 
+            color: var(--accent-rgba) !important; 
+        }
+
+        /* --- Header: Brand Main Color --- */
+        header {
+            background-color: var(--brand-main);
+            color: var(--white);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            padding: 0.8rem 0;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.06);
+        }
+
+        nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 2rem;
+        }
+
+        .brand { 
+            display: flex; 
+            align-items: center; 
+            gap: 12px; 
+            text-decoration: none; 
+            color: var(--white); 
+        }
+
+        .logo-img { 
+            height: 42px; 
+            width: auto; 
+            transition: transform 0.3s ease; 
+        }
+
+        .brand:hover .logo-img { 
+            transform: scale(1.05); 
+        }
+
+        .brand-name { 
+            font-size: 1.4rem; 
+            font-weight: 800; 
+            text-transform: uppercase; 
+            letter-spacing: 0.5px; 
+        }
+
+        .nav-links { 
+            display: flex; 
+            align-items: center; 
+            gap: 2.2rem; 
+        }
+
+        .nav-links a { 
+            color: var(--white); 
+            text-decoration: none; 
+            font-weight: 500; 
+            font-size: 0.9rem; 
+            opacity: 0.85; 
+            transition: 0.3s; 
+        }
+
+        .nav-links a:hover { 
+            opacity: 1; 
+            transform: translateY(-1px); 
+        }
+
+        /* --- Main Content Layout --- */
+        main { 
+            flex: 1; 
+            padding: 2rem; 
+            max-width: 1200px; 
+            margin: 0 auto; 
+            width: 100%; 
+        }
+
+        /* Scroll Reveal Utility */
+        .reveal {
+            opacity: 0;
+            transform: translateY(25px);
+            transition: all 0.9s cubic-bezier(0.17, 0.67, 0.83, 0.67);
+        }
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* --- Footer: 2-Column Brand Theme --- */
+        .site-footer {
+            background-color: var(--brand-main);
+            color: var(--white);
+            padding: 6rem 2rem 3rem 2rem;
+            margin-top: 4rem;
+        }
+
+        .footer-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1.1fr 0.9fr;
+            gap: 5rem;
+        }
+
+        .footer-left h2 { 
+            font-size: 2.8rem; 
+            margin-bottom: 1.5rem; 
+            line-height: 1.1; 
+            font-weight: 800; 
+        }
+
+        .footer-left p { 
+            font-size: 1.1rem; 
+            opacity: 0.85; 
+            max-width: 480px; 
+            margin-bottom: 2.5rem; 
+        }
+
+        .contact-trigger {
+            display: inline-flex;
+            align-items: center;
+            padding: 16px 38px;
+            background: var(--white);
+            color: var(--accent-rgba); /* Updated to accent RGBA */
+            text-decoration: none;
+            border-radius: 100px;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+            transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+
+        .contact-trigger:hover { 
+            transform: translateY(-3px); 
+            box-shadow: 0 15px 30px rgba(0,0,0,0.15); 
+            color: var(--accent-hover);
+        }
+
+        .footer-right {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+        }
+
+        .footer-col h3 { 
+            font-size: 1rem; 
+            margin-bottom: 1.8rem; 
+            text-transform: uppercase; 
+            letter-spacing: 2px; 
+            font-weight: 700; 
+            opacity: 0.9; 
+        }
+
+        .footer-links { list-style: none; }
+        .footer-links li { margin-bottom: 14px; }
+        .footer-links a { 
+            color: var(--white); 
+            text-decoration: none; 
+            opacity: 0.75; 
+            transition: 0.3s; 
+            font-size: 0.95rem; 
+        }
+
+        .footer-links a:hover { 
+            opacity: 1; 
+            padding-left: 8px; 
+        }
+
+        .social-bar { 
+            margin-top: 3.5rem; 
+            display: flex; 
+            gap: 24px; 
+            font-size: 1.4rem; 
+        }
+
+        .social-bar span { 
+            cursor: pointer; 
+            transition: 0.3s; 
+            opacity: 0.8; 
+        }
+
+        .social-bar span:hover { 
+            opacity: 1; 
+            transform: translateY(-3px); 
+        }
+
+        .footer-bottom {
+            max-width: 1200px;
+            margin: 5rem auto 0;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255,255,255,0.15);
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.8rem;
+            opacity: 0.7;
+            letter-spacing: 0.5px;
+        }
+
+        @media (max-width: 900px) {
+            .footer-grid { grid-template-columns: 1fr; gap: 4rem; }
+            .footer-left h2 { font-size: 2.2rem; }
+            nav { padding: 0 1rem; }
+            .nav-links { gap: 1rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="app-wrapper">
+        <header>
+            <nav>
+                <a href="/" class="brand">
+                    <img src="{{ url_for('static', filename='img/logo.png') }}" alt="Logo" class="logo-img">
+                    <span class="brand-name"></span>
+                </a>
+                <div class="nav-links">
+                    <a href="/">Home</a>
+                    <a href="/services">Services</a>
+                    <a href="/portfolio">Portfolio</a>
+                    <a href="/team">Team</a>
+                    <a href="/contact">Contact</a>
+                </div>
+            </nav>
+        </header>
+
+        <main>
+            {% block content %}{% endblock %}
+        </main>
+
+        <footer class="site-footer">
+            <div class="footer-grid">
+                <div class="footer-left reveal">
+                    <h2>Let's build something <br>integral together.</h2>
+                    <p>Merging artistic intuition with technical precision to create digital ecosystems that thrive.</p>
+                    <a href="/contact" class="contact-trigger">Start a Project &nbsp; ➔</a>
+                    <div class="social-bar">
+                        <span>🅵</span> <span>🆇</span> <span>🅻</span> <span>🅸</span>
+                    </div>
+                </div>
+
+                <div class="footer-right reveal">
+                    <div class="footer-col">
+                        <h3>Company</h3>
+                        <ul class="footer-links">
+                            <li><a href="/team">The Collective</a></li>
+                            <li><a href="/portfolio">Selected Works</a></li>
+                            <li><a href="#">Join Us</a></li>
+                            <li><a href="#">Process</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-col">
+                        <h3>Expertise</h3>
+                        <ul class="footer-links">
+                            <li><a href="/services">Visual Identity</a></li>
+                            <li><a href="/services">Flask Systems</a></li>
+                            <li><a href="/services">Experience Design</a></li>
+                            <li><a href="/services">Digital Strategy</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2025 DESIGN INTEGRAL. ALL RIGHTS RESERVED.</p>
+                <p>COOKIE POLICY | PRIVACY PROTECT | TERMS OF SERVICE</p>
+            </div>
+        </footer>
+    </div>
+
+    <script>
+        function reveal() {
+            var reveals = document.querySelectorAll(".reveal");
+            for (var i = 0; i < reveals.length; i++) {
+                var windowHeight = window.innerHeight;
+                var elementTop = reveals[i].getBoundingClientRect().top;
+                var elementVisible = 100;
+                if (elementTop < windowHeight - elementVisible) {
+                    reveals[i].classList.add("active");
+                }
+            }
+        }
+        window.addEventListener("scroll", reveal);
+        window.addEventListener("load", reveal);
     </script>
 </body>
 </html>
