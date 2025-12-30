@@ -1,0 +1,55 @@
+{% extends "base.html" %}
+
+{% block title %}Home - Dugong Design Integral{% endblock %}
+
+{% block extra_head %}
+<link rel="stylesheet" href="{{ url_for('static', filename='home.css') }}">
+{% endblock %}
+
+{% block content %}
+<!-- Boilerplate background image section (swap static/bg.jpg as needed) -->
+<section class="hero-bg">
+	<img src="{{ url_for('static', filename='bg.jpg') }}" alt="Background" class="hero-bg-img">
+	<div class="hero">
+		<div class="hero-center">
+			<div class="hero-established">Established 2024</div>
+			<h1 class="hero-title">Design Integral</h1>
+			<p class="hero-desc">Where form meets function. We craft exceptional design solutions across furniture, interiors, industrial products, services, and experiences that transform spaces and elevate everyday life.</p>
+			<div class="hero-actions">
+				<a href="/portfolio" class="hero-btn hero-btn-primary">View Our Work <span class="arrow">→</span></a>
+				<a href="/contact" class="hero-btn hero-btn-outline">Get in Touch</a>
+			</div>
+		</div>
+	</div>
+</section>
+
+<!-- Expertise Section -->
+<section class="expertise">
+	<div class="expertise-header">
+		<h2>Our Expertise</h2>
+		<p>We offer comprehensive design solutions tailored to your unique needs, combining creativity with strategic thinking.</p>
+	</div>
+	<div class="expertise-grid">
+		<div class="expertise-card">
+			<div class="expertise-icon">&#128187;</div>
+			<div class="expertise-title">Furniture & Interior Design</div>
+			<div class="expertise-desc">Custom furniture pieces and interior spaces that blend aesthetics with functionality, creating environments that inspire and comfort.</div>
+		</div>
+		<div class="expertise-card">
+			<div class="expertise-icon">&#128196;</div>
+			<div class="expertise-title">Industrial Design</div>
+			<div class="expertise-desc">Innovative product design solutions that balance user needs, manufacturing efficiency, and market appeal for tangible success.</div>
+		</div>
+		<div class="expertise-card">
+			<div class="expertise-icon">&#128161;</div>
+			<div class="expertise-title">Service Design</div>
+			<div class="expertise-desc">Holistic service experiences that map user journeys and optimize touchpoints for seamless, delightful interactions.</div>
+		</div>
+		<div class="expertise-card">
+			<div class="expertise-icon">&#10024;</div>
+			<div class="expertise-title">Experience Design</div>
+			<div class="expertise-desc">Immersive experiences that engage the senses and create lasting emotional connections between people and brands.</div>
+		</div>
+	</div>
+</section>
+{% endblock %}
