@@ -1,251 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Design Integral</title>
     <style>
-        :root {
-            /* Structural Brand Color (Amethyst) */
-            --brand-main: #5f548dff;
-            
-            /* Interactive Accent Color (Deep Iris RGBA) */
-            --accent-rgba: rgba(95, 84, 141, 1);
-            --accent-hover: rgba(95, 84, 141, 0.85);
-            
-            /* Page Surface Colors */
-            --bg-color: #ffffff;
-            --text-color: #1a1a1a;
-            --text-muted: #666666;
-            --white: #ffffff;
-            --border-color: rgba(95, 84, 141, 0.15);
-        }
-
-        /* Base Reset */
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        
-        body {
-            font-family: 'Inter', system-ui, -apple-system, sans-serif;
-            background-color: var(--bg-color);
-            color: var(--text-color);
-            line-height: 1.6;
-            overflow-x: hidden;
-        }
-
-        .app-wrapper { 
-            display: flex; 
-            flex-direction: column; 
-            min-height: 100vh; 
-        }
-
-        /* --- Global Utility --- */
-        .pop-text { 
-            color: var(--accent-rgba) !important; 
-        }
-
-        /* --- Header: Brand Main Color --- */
-        header {
-            background-color: var(--brand-main);
-            color: var(--white);
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-            padding: 0.8rem 0;
-            box-shadow: 0 8px 25px rgba(0,0,0,0.06);
-        }
-
-        nav {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 0 2rem;
-        }
-
-        .brand { 
-            display: flex; 
-            align-items: center; 
-            gap: 12px; 
-            text-decoration: none; 
-            color: var(--white); 
-        }
-
-        .logo-img { 
-            height: 42px; 
-            width: auto; 
-            transition: transform 0.3s ease; 
-        }
-
-        .brand:hover .logo-img { 
-            transform: scale(1.05); 
-        }
-
-        .brand-name { 
-            font-size: 1.4rem; 
-            font-weight: 800; 
-            text-transform: uppercase; 
-            letter-spacing: 0.5px; 
-        }
-
-        .nav-links { 
-            display: flex; 
-            align-items: center; 
-            gap: 2.2rem; 
-        }
-
-        .nav-links a { 
-            color: var(--white); 
-            text-decoration: none; 
-            font-weight: 500; 
-            font-size: 0.9rem; 
-            opacity: 0.85; 
-            transition: 0.3s; 
-        }
-
-        .nav-links a:hover { 
-            opacity: 1; 
-            transform: translateY(-1px); 
-        }
-
-        /* --- Main Content Layout --- */
-        main { 
-            flex: 1; 
-            padding: 2rem; 
-            max-width: 1200px; 
-            margin: 0 auto; 
-            width: 100%; 
-        }
-
-        /* Scroll Reveal Utility */
-        .reveal {
-            opacity: 0;
-            transform: translateY(25px);
-            transition: all 0.9s cubic-bezier(0.17, 0.67, 0.83, 0.67);
-        }
-        .reveal.active {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        /* --- Footer: 2-Column Brand Theme --- */
-        .site-footer {
-            background-color: var(--brand-main);
-            color: var(--white);
-            padding: 6rem 2rem 3rem 2rem;
-            margin-top: 4rem;
-        }
-
-        .footer-grid {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: 1.1fr 0.9fr;
-            gap: 5rem;
-        }
-
-        .footer-left h2 { 
-            font-size: 2.8rem; 
-            margin-bottom: 1.5rem; 
-            line-height: 1.1; 
-            font-weight: 800; 
-        }
-
-        .footer-left p { 
-            font-size: 1.1rem; 
-            opacity: 0.85; 
-            max-width: 480px; 
-            margin-bottom: 2.5rem; 
-        }
-
-        .contact-trigger {
-            display: inline-flex;
-            align-items: center;
-            padding: 16px 38px;
-            background: var(--white);
-            color: var(--accent-rgba); /* Updated to accent RGBA */
-            text-decoration: none;
-            border-radius: 100px;
-            font-weight: 700;
-            letter-spacing: 0.5px;
-            transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
-        }
-
-        .contact-trigger:hover { 
-            transform: translateY(-3px); 
-            box-shadow: 0 15px 30px rgba(0,0,0,0.15); 
-            color: var(--accent-hover);
-        }
-
-        .footer-right {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 2rem;
-        }
-
-        .footer-col h3 { 
-            font-size: 1rem; 
-            margin-bottom: 1.8rem; 
-            text-transform: uppercase; 
-            letter-spacing: 2px; 
-            font-weight: 700; 
-            opacity: 0.9; 
-        }
-
-        .footer-links { list-style: none; }
-        .footer-links li { margin-bottom: 14px; }
-        .footer-links a { 
-            color: var(--white); 
-            text-decoration: none; 
-            opacity: 0.75; 
-            transition: 0.3s; 
-            font-size: 0.95rem; 
-        }
-
-        .footer-links a:hover { 
-            opacity: 1; 
-            padding-left: 8px; 
-        }
-
-        .social-bar { 
-            margin-top: 3.5rem; 
-            display: flex; 
-            gap: 24px; 
-            font-size: 1.4rem; 
-        }
-
-        .social-bar span { 
-            cursor: pointer; 
-            transition: 0.3s; 
-            opacity: 0.8; 
-        }
-
-        .social-bar span:hover { 
-            opacity: 1; 
-            transform: translateY(-3px); 
-        }
-
-        .footer-bottom {
-            max-width: 1200px;
-            margin: 5rem auto 0;
-            padding-top: 2rem;
-            border-top: 1px solid rgba(255,255,255,0.15);
-            display: flex;
-            justify-content: space-between;
-            font-size: 0.8rem;
-            opacity: 0.7;
-            letter-spacing: 0.5px;
-        }
-
-        @media (max-width: 900px) {
-            .footer-grid { grid-template-columns: 1fr; gap: 4rem; }
-            .footer-left h2 { font-size: 2.2rem; }
-            nav { padding: 0 1rem; }
-            .nav-links { gap: 1rem; }
+        {
+            % include 'css/base.css' %
         }
     </style>
+    {% block styles %}{% endblock %}
 </head>
+
 <body>
 
     <div class="app-wrapper">
@@ -259,7 +26,7 @@
                     <a href="/">Home</a>
                     <a href="/services">Services</a>
                     <a href="/portfolio">Portfolio</a>
-                    <a href="/team">Team</a>
+                    <a href="/about_us">About Us</a>
                     <a href="/contact">Contact</a>
                 </div>
             </nav>
@@ -325,4 +92,5 @@
         window.addEventListener("load", reveal);
     </script>
 </body>
+
 </html>

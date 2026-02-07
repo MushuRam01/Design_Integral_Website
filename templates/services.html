@@ -1,9 +1,58 @@
 {% extends "base.html" %}
+
 {% block content %}
-    <h1 style="color: var(--pop-color);">Our Services</h1>
-    <ul>
-        <li>Web Design</li>
-        <li>Flask Development</li>
-        <li>UI/UX Strategy</li>
-    </ul>
+<section class="services-header reveal">
+    <h1 class="page-title">Our Expertise</h1>
+    <p class="page-subtitle">Comprehensive design solutions tailored to your needs.</p>
+</section>
+
+<section class="services-grid reveal">
+    <!-- Service 1 -->
+    <div class="service-card">
+        <div class="service-icon">🎨</div>
+        <h3>Visual Communications</h3>
+        <p>Brand identity development, wayfinding signage systems, experiential graphics, and environmental branding
+            that tells your story.</p>
+    </div>
+
+    <!-- Service 2 -->
+    <div class="service-card">
+        <div class="service-icon">🛍️</div>
+        <h3>Retail Design</h3>
+        <p>Innovative store concepts, strategic customer journey mapping, merchandising design, and immersive retail
+            environments that drive sales.</p>
+    </div>
+
+    <!-- Service 3 -->
+    <div class="service-card">
+        <div class="service-icon">🏢</div>
+        <h3>Commercial Interiors</h3>
+        <p>Inspiring offices, collaborative co-working spaces, and sophisticated hospitality environments designed for
+            productivity and brand alignment.</p>
+    </div>
+
+    <!-- Service 4 -->
+    <div class="service-card">
+        <div class="service-icon">🏡</div>
+        <h3>Residential Interiors</h3>
+        <p>Bespoke living spaces, luxury apartments, and elegant villas tailored to personal style, comfort, and
+            functionality.</p>
+    </div>
+
+    <!-- Service 5 -->
+    <div class="service-card">
+        <div class="service-icon">⚙️</div>
+        <h3>Fit-outs & Turnkey</h3>
+        <p>Complete end-to-end project management, vendor coordination, quality control, and timely delivery for
+            hassle-free execution.</p>
+    </div>
+</section>
+
+{% block styles %}
+<style>
+    {
+        % include 'css/services.css' %
+    }
+</style>
+{% endblock %}
 {% endblock %}

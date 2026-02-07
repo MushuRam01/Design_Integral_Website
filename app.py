@@ -14,9 +14,9 @@ def services():
 def portfolio():
     return render_template('portfolio.html')
 
-@app.route('/team')
-def team():
-    return render_template('team.html')
+@app.route('/about_us')
+def about_us():
+    return render_template('about_us.html')
 
 @app.route('/contact')
 def contact():

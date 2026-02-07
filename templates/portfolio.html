@@ -1,5 +1,79 @@
 {% extends "base.html" %}
+
 {% block content %}
-    <h1>Portfolio</h1>
-    <p>Check out our latest work using the #5f548dff palette.</p>
+<section class="portfolio-header reveal">
+    <h1 class="page-title">Selected Works</h1>
+    <p class="page-subtitle">A showcase of integrated design excellence across multiple disciplines.</p>
+</section>
+
+<div class="portfolio-categories reveal">
+    <button class="cat-btn active">All</button>
+    <button class="cat-btn">Retail</button>
+    <button class="cat-btn">Commercial</button>
+    <button class="cat-btn">Residential</button>
+    <button class="cat-btn">Visuals</button>
+</div>
+
+<div class="portfolio-grid reveal">
+    <!-- Retail Project Placeholder -->
+    <div class="project-card">
+        <div class="project-img-placeholder">Retail Project</div>
+        <div class="project-info">
+            <h3>Fashion Boutique</h3>
+            <span class="project-cat">Retail Design</span>
+        </div>
+    </div>
+
+    <!-- Commercial Project Placeholder -->
+    <div class="project-card">
+        <div class="project-img-placeholder">Office Project</div>
+        <div class="project-info">
+            <h3>Tech HQ Workspace</h3>
+            <span class="project-cat">Commercial Interior</span>
+        </div>
+    </div>
+
+    <!-- Residential Project Placeholder -->
+    <div class="project-card">
+        <div class="project-img-placeholder">Villa Project</div>
+        <div class="project-info">
+            <h3>Modern Villa</h3>
+            <span class="project-cat">Residential</span>
+        </div>
+    </div>
+
+    <!-- Visuals Project Placeholder -->
+    <div class="project-card">
+        <div class="project-img-placeholder">Branding Project</div>
+        <div class="project-info">
+            <h3>EcoBrand Identity</h3>
+            <span class="project-cat">Visual Communications</span>
+        </div>
+    </div>
+
+    <!-- More Placeholders -->
+    <div class="project-card">
+        <div class="project-img-placeholder">Retail Concept</div>
+        <div class="project-info">
+            <h3>Flagship Store</h3>
+            <span class="project-cat">Retail Design</span>
+        </div>
+    </div>
+
+    <div class="project-card">
+        <div class="project-img-placeholder">Hospitality</div>
+        <div class="project-info">
+            <h3>Luxury Lounge</h3>
+            <span class="project-cat">Commercial Interior</span>
+        </div>
+    </div>
+</div>
+
+{% block styles %}
+<style>
+    {
+        % include 'css/portfolio.css' %
+    }
+</style>
+{% endblock %}
 {% endblock %}

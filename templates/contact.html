@@ -1,9 +1,62 @@
 {% extends "base.html" %}
+
 {% block content %}
-    <h1>Contact Us</h1>
-    <form>
-        <input type="text" placeholder="Your Name" style="display:block; margin-bottom:10px; width:100%; padding:8px;">
-        <textarea placeholder="Message" style="display:block; margin-bottom:10px; width:100%; padding:8px;"></textarea>
-        <button type="submit" class="btn-pop">Send Message</button>
-    </form>
+<div class="contact-wrapper reveal">
+    <div class="contact-info">
+        <h1 class="page-title">Let's Design the Future Together</h1>
+        <p class="contact-intro">
+            Partner with Design Integral to experience seamless, innovative design solutions that elevate your brand and
+            transform your spaces.
+        </p>
+
+        <div class="contact-details">
+            <div class="detail-item">
+                <h3>Get in Touch</h3>
+                <p><strong>Narayanan Rajagopalan</strong></p>
+                <p>+91 8861207642</p>
+                <p>contact@designintegral.com</p>
+            </div>
+
+            <div class="detail-item">
+                <h3>Visit Us</h3>
+                <p>www.designintegral.com</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="contact-form-container">
+        <h2>Send a Message</h2>
+        <form class="contact-form">
+            <div class="form-group">
+                <label for="name">Name</label>
+                <input type="text" id="name" placeholder="Your Name" required>
+            </div>
+
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" placeholder="Your Email" required>
+            </div>
+
+            <div class="form-group">
+                <label for="subject">Subject</label>
+                <input type="text" id="subject" placeholder="Project Type / Inquiry">
+            </div>
+
+            <div class="form-group">
+                <label for="message">Message</label>
+                <textarea id="message" rows="5" placeholder="Tell us about your project..." required></textarea>
+            </div>
+
+            <button type="submit" class="btn-submit">Send Message</button>
+        </form>
+    </div>
+</div>
+
+{% block styles %}
+<style>
+    {
+        % include 'css/contact.css' %
+    }
+</style>
+{% endblock %}
 {% endblock %}
