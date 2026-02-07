@@ -21,7 +21,12 @@
                     <img src="{{ url_for('static', filename='img/logo.png') }}" alt="Logo" class="logo-img">
                     <span class="brand-name"></span>
                 </a>
-                <div class="nav-links">
+                <button class="nav-toggle" type="button" aria-label="Toggle navigation" aria-expanded="false" aria-controls="primary-navigation">
+                    <span class="nav-toggle-bar"></span>
+                    <span class="nav-toggle-bar"></span>
+                    <span class="nav-toggle-bar"></span>
+                </button>
+                <div class="nav-links" id="primary-navigation">
                     <a href="/">Home</a>
                     <a href="/services">Services</a>
                     <a href="/portfolio">Portfolio</a>
@@ -76,6 +81,13 @@
     </div>
 
     <script>
+        function toggleNav() {
+            var toggle = document.querySelector(".nav-toggle");
+            var nav = document.querySelector(".nav-links");
+            if (!toggle || !nav) return;
+            var isOpen = nav.classList.toggle("nav-open");
+            toggle.setAttribute("aria-expanded", isOpen ? "true" : "false");
+        }
         function reveal() {
             var reveals = document.querySelectorAll(".reveal");
             for (var i = 0; i < reveals.length; i++) {
@@ -86,6 +98,10 @@
                     reveals[i].classList.add("active");
                 }
             }
+        }
+        var navToggleBtn = document.querySelector(".nav-toggle");
+        if (navToggleBtn) {
+            navToggleBtn.addEventListener("click", toggleNav);
         }
         window.addEventListener("scroll", reveal);
         window.addEventListener("load", reveal);
