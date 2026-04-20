@@ -1,0 +1,261 @@
+[
+  {
+    "slug": "baxter-experience-center",
+    "title": "Baxter Experience Center",
+    "location": "Bangalore",
+    "category_key": "retail-experience",
+    "category_label": "Retail and Experience",
+    "summary": "A corporate experience center stitching together a phygital experience.",
+    "image": "img/hero-bg.png",
+    "highlights": [
+      "Corporate experience center",
+      "Phygital experience integration",
+      "Brand-led visitor journey"
+    ],
+    "credits": "Copyrights with Tata Elxsi Ltd"
+  },
+  {
+    "slug": "tata-steel-safety-training-center",
+    "title": "Tata Steel Safety Training Center",
+    "location": "Jamshedpur, Kalinganagar",
+    "category_key": "retail-experience",
+    "category_label": "Retail and Experience",
+    "summary": "An experiential safety training center for Tata Steel.",
+    "image": "img/hero-bg.png",
+    "highlights": [
+      "Experiential safety training",
+      "Human-centred learning",
+      "Operational clarity"
+    ],
+    "credits": "Copyrights with Tata Elxsi Ltd"
+  },
+  {
+    "slug": "air-india-exhibition-kit",
+    "title": "Air India Exhibition - Modular 2000 sft kit",
+    "location": "Mumbai",
+    "category_key": "retail-experience",
+    "category_label": "Retail and Experience",
+    "summary": "A modular 2000 sft exhibition kit for Air India.",
+    "image": "img/hero-bg.png",
+    "highlights": [
+      "Modular exhibition kit",
+      "Rapid setup and reuse",
+      "Brand-forward storytelling"
+    ],
+    "credits": "Copyrights with Tata Elxsi Ltd"
+  },
+  {
+    "slug": "caravan-craft-retail",
+    "title": "Caravan Craft Retail Environments",
+    "location": "Pune and Bangalore",
+    "category_key": "retail-experience",
+    "category_label": "Retail and Experience",
+    "summary": "Retail environments in Pune and Bangalore.",
+    "image": "img/hero-bg.png",
+    "highlights": [
+      "Multi-location rollout",
+      "Consistent brand experience",
+      "Optimised shopper flow"
+    ]
+  },
+  {
+    "slug": "twin-birds-retail",
+    "title": "Twin Birds - Womens Clothing Brand",
+    "location": "India",
+    "category_key": "retail-experience",
+    "category_label": "Retail and Experience",
+    "summary": "Womens clothing brand retail environments across multiple locations.",
+    "image": "img/hero-bg.png",
+    "highlights": [
+      "Multi-location retail",
+      "Brand experience design",
+      "Optimised merchandising"
+    ]
+  },
+  {
+    "slug": "featherlite-showroom",
+    "title": "Featherlite Showroom",
+    "location": "Mumbai",
+    "category_key": "retail-experience",
+    "category_label": "Retail and Experience",
+    "summary": "A showroom to display Featherlite products in Mumbai.",
+    "image": "img/hero-bg.png",
+    "highlights": [
+      "Product-focused display",
+      "Customer journey planning",
+      "Brand consistency"
+    ]
+  },
+  {
+    "slug": "pablosky-retail",
+    "title": "Pablosky Retail Environments",
+    "location": "Spain",
+    "category_key": "retail-experience",
+    "category_label": "Retail and Experience",
+    "summary": "Spanish shoe brand retail environments.",
+    "image": "img/hero-bg.png",
+    "highlights": [
+      "International retail rollout",
+      "Footwear brand storytelling",
+      "Experiential merchandising"
+    ],
+    "credits": "Copyrights with Grottini Retail Environments"
+  },
+  {
+    "slug": "freeway-retail",
+    "title": "Freeway Retail Environments",
+    "location": "Italy",
+    "category_key": "retail-experience",
+    "category_label": "Retail and Experience",
+    "summary": "Italian fashion brand retail environments.",
+    "image": "img/hero-bg.png",
+    "highlights": [
+      "Fashion retail experience",
+      "Lifestyle merchandising",
+      "Global brand alignment"
+    ],
+    "credits": "Copyrights with Grottini Retail Environments"
+  },
+  {
+    "slug": "renascimento-retail",
+    "title": "Renascimento Retail Environments",
+    "location": "Italy",
+    "category_key": "retail-experience",
+    "category_label": "Retail and Experience",
+    "summary": "Italian fashion brand retail environments.",
+    "image": "img/hero-bg.png",
+    "highlights": [
+      "Fashion retail strategy",
+      "Customer journey design",
+      "Merchandising zones"
+    ],
+    "credits": "Copyrights with Grottini Retail Environments"
+  },
+  {
+    "slug": "claro-eyewear",
+    "title": "Claro Eyewear Brand",
+    "location": "Italy",
+    "category_key": "retail-experience",
+    "category_label": "Retail and Experience",
+    "summary": "Italian eyewear brand retail environments.",
+    "image": "img/hero-bg.png",
+    "highlights": [
+      "Eyewear brand display",
+      "Experience-led retail",
+      "Premium material strategy"
+    ],
+    "credits": "Copyrights with Grottini Retail Environments"
+  },
+  {
+    "slug": "premium-apartments",
+    "title": "Premium Apartments",
+    "location": "Residential Projects",
+    "category_key": "residential",
+    "category_label": "Residential",
+    "summary": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus vel consequat lorem.",
+    "image": "img/hero-bg.png",
+    "highlights": [
+      "Space planning and detailing",
+      "Material and finish strategy",
+      "Custom interior solutions"
+    ]
+  },
+  {
+    "slug": "villas-custom-interiors",
+    "title": "Villas with Custom Interiors",
+    "location": "Residential Projects",
+    "category_key": "residential",
+    "category_label": "Residential",
+    "summary": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed tempor nibh in lorem laoreet.",
+    "image": "img/hero-bg.png",
+    "highlights": [
+      "Tailored living spaces",
+      "Custom furniture detailing",
+      "Integrated design execution"
+    ]
+  },
+  {
+    "slug": "theme-based-living-homelane",
+    "title": "Theme Based Living - HomeLane",
+    "location": "Residential Projects",
+    "category_key": "residential",
+    "category_label": "Residential",
+    "summary": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla facilisi.",
+    "image": "img/hero-bg.png",
+    "highlights": [
+      "Theme-led design direction",
+      "Space optimisation",
+      "Material consistency"
+    ]
+  },
+  {
+    "slug": "hero-palatial-theme-living",
+    "title": "Hero Palatial - Theme Based Living",
+    "location": "Residential Projects",
+    "category_key": "residential",
+    "category_label": "Residential",
+    "summary": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer mattis purus vitae massa.",
+    "image": "img/hero-bg.png",
+    "highlights": [
+      "Premium residential experience",
+      "Custom spatial planning",
+      "Detail-oriented execution"
+    ]
+  },
+  {
+    "slug": "modular-desking-system",
+    "title": "Modular Desking System",
+    "location": "Industrial and Product",
+    "category_key": "industrial-product",
+    "category_label": "Industrial and Product",
+    "summary": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec at sapien at nibh porta.",
+    "image": "img/hero-bg.png",
+    "highlights": [
+      "Modular configuration",
+      "Material strategy",
+      "Functional intelligence"
+    ]
+  },
+  {
+    "slug": "custom-display-systems",
+    "title": "Custom Display Systems",
+    "location": "Industrial and Product",
+    "category_key": "industrial-product",
+    "category_label": "Industrial and Product",
+    "summary": "Custom display systems and retail fixtures.",
+    "image": "img/hero-bg.png",
+    "highlights": [
+      "Display system design",
+      "Retail fixture detailing",
+      "Production-ready documentation"
+    ]
+  },
+  {
+    "slug": "furniture-design",
+    "title": "Furniture Design",
+    "location": "Industrial and Product",
+    "category_key": "industrial-product",
+    "category_label": "Industrial and Product",
+    "summary": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer sit amet dolor nec nunc.",
+    "image": "img/hero-bg.png",
+    "highlights": [
+      "Ergonomic intent",
+      "Material exploration",
+      "Prototype to detail"
+    ]
+  },
+  {
+    "slug": "retail-fixtures",
+    "title": "Retail Fixtures",
+    "location": "Industrial and Product",
+    "category_key": "industrial-product",
+    "category_label": "Industrial and Product",
+    "summary": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras dignissim dignissim libero.",
+    "image": "img/hero-bg.png",
+    "highlights": [
+      "Fixture design",
+      "Manufacturing coordination",
+      "Quality assurance"
+    ]
+  }
+]

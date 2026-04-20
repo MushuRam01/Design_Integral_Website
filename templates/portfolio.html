@@ -3,71 +3,80 @@
 {% block content %}
 <section class="portfolio-header reveal">
     <h1 class="page-title">Selected Works</h1>
-    <p class="page-subtitle">A showcase of integrated design excellence across multiple disciplines.</p>
+    <p class="page-subtitle">A curated selection of projects across domains and geographies.</p>
 </section>
 
 <div class="portfolio-categories reveal">
-    <button class="cat-btn active">All</button>
-    <button class="cat-btn">Retail</button>
-    <button class="cat-btn">Commercial</button>
-    <button class="cat-btn">Residential</button>
-    <button class="cat-btn">Visuals</button>
+    <button class="cat-btn active" data-filter="all">All</button>
+    {% for category in categories %}
+    <button class="cat-btn" data-filter="{{ category.key }}">{{ category.label }}</button>
+    {% endfor %}
 </div>
 
-<div class="portfolio-grid reveal">
-    <!-- Retail Project Placeholder -->
-    <div class="project-card">
-        <div class="project-img-placeholder">Retail Project</div>
-        <div class="project-info">
-            <h3>Fashion Boutique</h3>
-            <span class="project-cat">Retail Design</span>
+<div class="portfolio-grid reveal" id="portfolio-grid">
+    {% for project in projects %}
+    <a class="project-card" href="/portfolio/{{ project.slug }}" data-category="{{ project.category_key }}">
+        <div class="project-img">
+            <img src="{{ url_for('static', filename=project.image) }}" alt="{{ project.title }}" loading="lazy">
         </div>
-    </div>
-
-    <!-- Commercial Project Placeholder -->
-    <div class="project-card">
-        <div class="project-img-placeholder">Office Project</div>
         <div class="project-info">
-            <h3>Tech HQ Workspace</h3>
-            <span class="project-cat">Commercial Interior</span>
+            <h3>{{ project.title }}</h3>
+            <span class="project-cat">{{ project.category_label }}</span>
         </div>
-    </div>
-
-    <!-- Residential Project Placeholder -->
-    <div class="project-card">
-        <div class="project-img-placeholder">Villa Project</div>
-        <div class="project-info">
-            <h3>Modern Villa</h3>
-            <span class="project-cat">Residential</span>
-        </div>
-    </div>
-
-    <!-- Visuals Project Placeholder -->
-    <div class="project-card">
-        <div class="project-img-placeholder">Branding Project</div>
-        <div class="project-info">
-            <h3>EcoBrand Identity</h3>
-            <span class="project-cat">Visual Communications</span>
-        </div>
-    </div>
-
-    <!-- More Placeholders -->
-    <div class="project-card">
-        <div class="project-img-placeholder">Retail Concept</div>
-        <div class="project-info">
-            <h3>Flagship Store</h3>
-            <span class="project-cat">Retail Design</span>
-        </div>
-    </div>
-
-    <div class="project-card">
-        <div class="project-img-placeholder">Hospitality</div>
-        <div class="project-info">
-            <h3>Luxury Lounge</h3>
-            <span class="project-cat">Commercial Interior</span>
-        </div>
-    </div>
+    </a>
+    {% endfor %}
 </div>
+
+<section class="case-study-teaser reveal">
+    <div class="case-study-text">
+        <p class="eyebrow">Design in Action</p>
+        <h2>From brief to brilliance</h2>
+        <p>Tata Steel Safety Training Center - Jamshedpur, Kalinganagar</p>
+    </div>
+    <div class="case-study-steps">
+        <div class="case-step">
+            <h3>Client Objective</h3>
+            <p>Understand brief, business goals, and end-user expectations.</p>
+        </div>
+        <div class="case-step">
+            <h3>Design Challenge</h3>
+            <p>Identify constraints and spatial or functional gaps to bridge.</p>
+        </div>
+        <div class="case-step">
+            <h3>Solution Approach</h3>
+            <p>Concept development, iterative design, and material strategy.</p>
+        </div>
+        <div class="case-step">
+            <h3>Final Outcome</h3>
+            <p>Meeting expectations and delivering the right experience.</p>
+        </div>
+    </div>
+</section>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        var buttons = document.querySelectorAll(".cat-btn");
+        var cards = document.querySelectorAll(".project-card");
+
+        function applyFilter(filter) {
+            cards.forEach(function (card) {
+                var category = card.getAttribute("data-category");
+                var show = filter === "all" || category === filter;
+                card.style.display = show ? "block" : "none";
+            });
+        }
+
+        buttons.forEach(function (button) {
+            button.addEventListener("click", function () {
+                buttons.forEach(function (btn) {
+                    btn.classList.remove("active");
+                });
+                button.classList.add("active");
+                applyFilter(button.getAttribute("data-filter"));
+            });
+        });
+    });
+</script>
 
 {% block styles %}
 <style>

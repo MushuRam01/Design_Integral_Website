@@ -1,6 +1,30 @@
-from flask import Flask, Response, render_template, request, send_from_directory
+import json
+import os
+
+from flask import Flask, Response, abort, render_template, request, send_from_directory
 
 app = Flask(__name__)
+PROJECTS_PATH = os.path.join(app.root_path, 'data', 'projects.json')
+
+
+def load_projects():
+    try:
+        with open(PROJECTS_PATH, 'r', encoding='utf-8') as file:
+            return json.load(file)
+    except FileNotFoundError:
+        return []
+
+
+def build_categories(projects):
+    categories = []
+    seen = set()
+    for project in projects:
+        key = project.get('category_key')
+        label = project.get('category_label')
+        if key and label and key not in seen:
+            categories.append({'key': key, 'label': label})
+            seen.add(key)
+    return categories
 
 @app.route('/')
 def home():
@@ -12,7 +36,18 @@ def services():
 
 @app.route('/portfolio')
 def portfolio():
-    return render_template('portfolio.html')
+    projects = load_projects()
+    categories = build_categories(projects)
+    return render_template('portfolio.html', projects=projects, categories=categories)
+
+
+@app.route('/portfolio/<slug>')
+def project_detail(slug):
+    projects = load_projects()
+    project = next((item for item in projects if item.get('slug') == slug), None)
+    if project is None:
+        abort(404)
+    return render_template('project_detail.html', project=project)
 
 @app.route('/about_us')
 def about_us():

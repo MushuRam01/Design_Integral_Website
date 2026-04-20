@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+
+{% block content %}
+<section class="project-hero reveal">
+    <div class="project-text">
+        <p class="eyebrow">{{ project.category_label }}</p>
+        <h1 class="page-title">{{ project.title }}</h1>
+        <p class="project-location">{{ project.location }}</p>
+        <p class="project-summary">{{ project.summary }}</p>
+    </div>
+    <div class="project-media">
+        <img src="{{ url_for('static', filename=project.image) }}" alt="{{ project.title }}">
+    </div>
+</section>
+
+<section class="section reveal">
+    <div class="section-header">
+        <h2 class="section-title">Project Highlights</h2>
+    </div>
+    {% if project.highlights %}
+    <ul class="bullet-list">
+        {% for item in project.highlights %}
+        <li>{{ item }}</li>
+        {% endfor %}
+    </ul>
+    {% else %}
+    <p class="project-summary">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+    {% endif %}
+    {% if project.credits %}
+    <p class="project-credits">{{ project.credits }}</p>
+    {% endif %}
+</section>
+
+<div class="project-nav reveal">
+    <a class="project-back" href="/portfolio">Back to Portfolio</a>
+</div>
+
+{% block styles %}
+<style>
+    {% include 'css/project_detail.css' %}
+</style>
+{% endblock %}
+{% endblock %}

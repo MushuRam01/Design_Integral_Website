@@ -8,10 +8,13 @@
 
     /* Page Surface Colors */
     --bg-color: #ffffff;
+    --bg-tint: #ffffff;
+    --surface-color: #ffffff;
     --text-color: #1a1a1a;
     --text-muted: #666666;
     --white: #ffffff;
     --border-color: rgba(95, 84, 141, 0.15);
+    --shadow-color: rgba(0, 0, 0, 0.08);
 }
 
 /* Base Reset */
@@ -131,10 +134,95 @@ nav {
 /* --- Main Content Layout --- */
 main {
     flex: 1;
-    padding: 2rem;
+    padding: 3rem 2rem 5rem;
     max-width: 1200px;
     margin: 0 auto;
     width: 100%;
+}
+
+.section {
+    padding: 4.5rem 0;
+}
+
+.section-tint {
+    background: linear-gradient(180deg, rgba(95, 84, 141, 0.12), rgba(95, 84, 141, 0.05));
+    border-radius: 28px;
+    padding: 4.5rem 3rem;
+}
+
+.section-header {
+    max-width: 780px;
+    margin-bottom: 2.5rem;
+}
+
+.section-title {
+    font-size: clamp(2rem, 3.5vw, 3rem);
+    margin-bottom: 1rem;
+    color: var(--brand-main);
+}
+
+.page-title {
+    font-size: clamp(2.4rem, 4.5vw, 3.6rem);
+    margin-bottom: 1rem;
+    color: var(--brand-main);
+}
+
+.section-lead {
+    font-size: 1.15rem;
+    color: var(--text-muted);
+}
+
+.eyebrow {
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: var(--accent-rgba);
+    font-weight: 600;
+    margin-bottom: 0.6rem;
+}
+
+.info-card {
+    background: var(--surface-color);
+    border-radius: 18px;
+    padding: 2.2rem;
+    border: 1px solid var(--border-color);
+    box-shadow: 0 18px 40px var(--shadow-color);
+}
+
+.bullet-list {
+    list-style: none;
+    padding-left: 0;
+    margin: 1.2rem 0 0;
+    display: grid;
+    gap: 0.65rem;
+}
+
+.bullet-list li {
+    padding-left: 1.2rem;
+    position: relative;
+    color: var(--text-muted);
+}
+
+.bullet-list li::before {
+    content: "-";
+    position: absolute;
+    left: 0;
+    color: var(--accent-rgba);
+    font-weight: 700;
+}
+
+.media-placeholder {
+    background: linear-gradient(135deg, rgba(95, 84, 141, 0.12), rgba(95, 84, 141, 0.04));
+    border: 1px dashed rgba(95, 84, 141, 0.25);
+    border-radius: 18px;
+    min-height: 280px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--text-muted);
+    font-weight: 600;
+    text-align: center;
+    padding: 1.5rem;
 }
 
 /* Scroll Reveal Utility */
@@ -267,6 +355,19 @@ main {
 }
 
 @media (max-width: 900px) {
+    main {
+        padding: 2.5rem 1.5rem 4rem;
+    }
+
+    .section {
+        padding: 3.5rem 0;
+    }
+
+    .section-tint {
+        padding: 3rem 1.5rem;
+        border-radius: 22px;
+    }
+
     .footer-grid {
         grid-template-columns: 1fr;
         gap: 4rem;
